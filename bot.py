@@ -35,7 +35,7 @@ menu_series.row(types.InlineKeyboardButton('Lucifer', callback_data="Lucifer.jpe
 menu_series.row(types.InlineKeyboardButton('Lupin', callback_data="Lupin.jpeg"))
 menu_series.row(types.InlineKeyboardButton('Round6', callback_data="Round6.jpeg"))
 menu_series.row(types.InlineKeyboardButton('Sex Education', callback_data="SexEducation.jpeg"))
-menu_series.row(types.InlineKeyboardButton('Vicenzo', callback_data="Vicenzo.jpeg"))
+menu_series.row(types.InlineKeyboardButton('Vincenzo', callback_data="Vincenzo.jpeg"))
 
 @bot.callback_query_handler(lambda q: True)
 def set_serie(call):
