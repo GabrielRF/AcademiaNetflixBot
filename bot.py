@@ -35,12 +35,14 @@ menu_series.row(types.InlineKeyboardButton('Lucifer', callback_data="Lucifer.jpe
 menu_series.row(types.InlineKeyboardButton('Lupin', callback_data="Lupin.jpeg"))
 menu_series.row(types.InlineKeyboardButton('Round6', callback_data="Round6.jpeg"))
 menu_series.row(types.InlineKeyboardButton('Sex Education', callback_data="SexEducation.jpeg"))
+menu_series.row(types.InlineKeyboardButton('Sintonia', callback_data="Sintonia.jpeg"))
 menu_series.row(types.InlineKeyboardButton('Vincenzo', callback_data="Vincenzo.jpeg"))
 
 @bot.callback_query_handler(lambda q: True)
 def set_serie(call):
     redis_set(call.from_user.id, call.data)
     bot.answer_callback_query(call.id, call.data.replace('.jpeg', ''))
+    bot.send_message(call.from_user.id, "Envie seu nome")
 
 @bot.message_handler(commands=['start', 'serie', 'Serie'])
 def set_serie(message):
@@ -76,5 +78,6 @@ def Create_Image(message):
     photo = open(str(message.from_user.id) + '.jpg', 'rb')
     bot.send_photo(message.from_user.id, photo)
     os.remove(str(message.from_user.id) + '.jpg')
+    bot.send_message(message.from_user.id, 'Para criar outro, envie outro nome.\nPara alterar a série, envie /serie.')
 bot.polling(none_stop=True)
 
